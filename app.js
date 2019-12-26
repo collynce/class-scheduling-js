@@ -9,10 +9,10 @@ const port = 5050;
 
 class ScheduleData {
 
-  constructor(teacher,subject,room,date) {
+  constructor(teacher,subject,venue,date) {
     this.teacher = teacher;
     this.subject = subject;
-    this.room = room;
+    this.venue = venue;
     this.date = date;
   }
 }
@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
 
 app.post('/add', (req, res) => {
   const data = req.body;
-  const  items =new ScheduleData(data.teacher,data.subject,data.room,data.date);
+  const  items =new ScheduleData(data.teacher,data.subject,data.venue,data.date);
   dataArray.push(items);
   res.redirect(`${host}:${port}/`);
 });
