@@ -7,6 +7,9 @@ const app = express();
 const host = 'localhost';
 const port = 5050;
 
+
+const dataArray = [];
+
 class ScheduleData {
 
   constructor(teacher,subject,venue,date) {
@@ -16,9 +19,6 @@ class ScheduleData {
     this.date = date;
   }
 }
-
-
-let dataArray = [];
 
 app.use(cors());
 
