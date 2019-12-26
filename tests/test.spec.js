@@ -1,12 +1,12 @@
 describe('Check if it the code works', function () {
     let schedule, Dom;
     beforeEach(function () {
-        task = new Task();
+        schedule = new Items();
         Dom = new ChangeDom();
     });
-        it('Check if it can get a task', function () {
+        it('Check if it can get items', function () {
 
-            expect(schedule.getItems().length).toBe(3);
+            expect(schedule.getItems().length).toBe(4);
         });
 
 });
