@@ -2,35 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="foundation/css/foundation.css">
-    <link rel="stylesheet" href="foundation/css/app.css">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="foundation/css/foundation.css" rel="stylesheet">
+    <link href="foundation/css/app.css" rel="stylesheet">
     <title>JS | Schedule</title>
 </head>
 <body>
 <div class="container">
     <div class="grid-container">
-        <button class="button" id="buttons">Create</button>
         <div class="grid-x" id="form">
             <form action="http://localhost:5050/add" method="POST">
                 <h3>Create Schedule</h3>
-                    <input type="text"  name="teacher" placeholder="Teacher's name" required>
+                <input name="teacher" placeholder="Teacher's name" required type="text">
 
-                    <input type="text"   name="subject" placeholder="Subject name" required>
+                <input name="subject" placeholder="Subject name" required type="text">
 
-                    <input type="text"   name="room" placeholder="Venue" required>
+                <input name="room" placeholder="Venue" required type="text">
 
-                    <input type="date" name="date" min="Date.now()" required>
+                <input min="Date.now()" name="date" required type="date">
 
-                <button type="submit" id="button" class="button submit">Submit</button>
+                <button class="button primary" id="button" type="submit">Submit</button>
                 <button class="button alert" id="close">Close</button>
             </form>
         </div>
         <div class="card">
             <div class="card-divider">
-                Schedule
+                <p>Schedule
+                    <button class="button" id="buttons">Create</button>
+                </p>
             </div>
             <div class="card-body">
                 <div class="grid-x grid-padding-y">
@@ -54,7 +55,7 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="http://localhost:5050/items"></script>
+    <script src="http://localhost:5050/items" type="text/javascript"></script>
 </div>
 </body>
 </html>

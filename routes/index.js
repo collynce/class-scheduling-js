@@ -1,16 +1,16 @@
 class ChangeDom {
     initialize(items){
-        const tbody = document.querySelector("tbody");
+        const tbody = window.document.querySelector("tbody");
         while (tbody.firstChild) {
             tbody.removeChild(tbody.firstChild);
         }
         for (const row in items) {
-            const tr = document.createElement("tr");
+            const tr = window.document.createElement("tr");
             if (items.hasOwnProperty(row)) {
-                const teacher = document.createElement("td");
-                const subject = document.createElement("td");
-                const venue = document.createElement("td");
-                const date = document.createElement("td");
+                const teacher = window.document.createElement("td");
+                const subject = window.document.createElement("td");
+                const venue = window.document.createElement("td");
+                const date = window.document.createElement("td");
 
                 teacher.textContent = items[row].teacher;
                 subject.textContent = items[row].subject;
@@ -32,7 +32,6 @@ let Dom = new ChangeDom();
 
 class Items {
     getItems() {
-
         const res = fetch('http://localhost:5050/add');
         res.then(res => {
             return res.json();
@@ -48,35 +47,24 @@ itemss.getItems();
 
 // domReady();
 
-document.getElementById('button').addEventListener('click', function (e) {
+window.document.getElementById('button').addEventListener('click', function (e) {
 
-
-        if (document.readyState === 'complete' || 'interactive') {
-            setInterval(function () {
-                itemss.getItems();
-            }, 1000);
-        }
-        // } else {
-        //     document.addEventListener('DOMContentLoaded', function (e) {
-        //         itemss.getItems();
-        //         e.preventDefault();
-        //     });
-        // }
-
-    // e.preventDefault();
 });
+if (window.document.readyState === 'complete' || 'interactive') {
+    setInterval(function () {
+        itemss.getItems();
+    }, 1000);
+}
 
-
-document.getElementById('form').style.display = 'none';
-document.getElementById('buttons').addEventListener('click', function (e) {
-    document.getElementById('form').style.display = 'flex';
-    document.getElementById('buttons').style.display = 'none';
-    // document.getElementById('form').className = 'grid-x';
+window.document.getElementById('form').style.display = 'none';
+window.document.getElementById('buttons').addEventListener('click', function (e) {
+    window.document.getElementById('form').style.display = 'flex';
+    window.document.getElementById('buttons').style.display = 'none';
     e.preventDefault();
 });
-document.getElementById('close').addEventListener('click', function (e) {
-    document.getElementById('form').style.display = 'none';
-    document.getElementById('buttons').style.display = 'flex';
+window.document.getElementById('close').addEventListener('click', function (e) {
+    window. document.getElementById('form').style.display = 'none';
+    window.document.getElementById('buttons').style.display = 'flex';
     e.preventDefault();
 });
 
