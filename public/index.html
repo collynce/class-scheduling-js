@@ -27,7 +27,7 @@
                                     <div class="cell medium-12">
                                         <button class="button" id="button1" onclick="add(1)">Add</button>
                                         <div class="grid-x" id="form">
-                                            <form action="http://localhost:5050/add" method="POST">
+                                            <form action="http://localhost:5050/subject" method="POST">
                                                 <h3>Add Subject</h3>
 <!--                                                <input name="teacher" placeholder="Teacher's name" required type="text">-->
 
@@ -71,17 +71,15 @@
                                         <span><button class="button alert" id="close2" onclick="closeBtn(2)"
                                                       style="display: none">Close</button></span>
                                         <form action="http://localhost:5050/teacher" id="form2" method="post" style="display: none">
-                                            <input placeholder="Name" type="text" name="teacher" required>
-                                            <select name="select" id="select" required>
-                                                <option value="Select">Select</option>
-                                            </select>
+                                            <input placeholder="Name" type="text" name="teacher" id="teacher" required>
+                                            <select name="subject" id="select-sub" required></select>
                                             <button class="button success" type="submit" id="submit2">Submit</button>
                                         </form>
                                         <table id="teachers-table">
                                             <thead>
                                             <tr>
-                                                <th>Subject Name</th>
                                                 <th>Teacher</th>
+                                                <th>Subject Name</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -104,9 +102,21 @@
                 </p>
             </div>
             <div class="card-body">
+                <div class="grid-x">
+                    <div class="cell medium-6" id="schedule-cell">
+                        <form action="http://localhost:5050/add" method="post" id="schedule-form">
+                            <select name="subject" id="select-subject"></select>
+                            <select name="teacher" id="select-teacher"></select>
+                            <input type="text" placeholder="Venue" name="venue">
+                            <input type="date" name="date">
+                            <button class="button" type="submit" id="add-schedule">Submit</button>
+                            <button class="button alert" type="submit" id="close-schedule">CLose</button>
+                        </form>
+                    </div>
+                </div>
                 <div class="grid-x grid-padding-y">
                     <div class="cell medium-12">
-                        <table id="Trans-table">
+                        <table id="schedule-table">
                             <thead>
                             <tr>
                                 <th>Teacher's Name</th>

@@ -9,14 +9,20 @@ const port = 5050;
 
 
 const dataArray = [];
-
 const teacherArray = [];
+const subjectArray = [];
 
 class TeacherData {
 
   constructor(teacher, select) {
     this.teacher = teacher;
     this.select = select;
+  }
+}
+class SubjectData {
+
+  constructor(subject) {
+    this.subject = subject;
   }
 }
 class ScheduleData {
@@ -41,22 +47,31 @@ app.get('/', (req, res) => {
 app.post('/add', (req, res) => {
   const data = req.body;
   const  items =new ScheduleData(data.teacher,data.subject,data.venue,data.date);
+  console.log(data);
   dataArray.push(items);
-  // res.redirect(`${host}:${port}/`);
   res.redirect('back')
 });
 app.post('/teacher', (req, res) => {
   const data = req.body;
-  const  items = new TeacherData(data.teacher,data.select);
+  const  items = new TeacherData(data.teacher,data.subject);
   console.log(data);
   teacherArray.push(items);
-  // res.redirect(`${host}:${port}/`);
   res.redirect('back')
 
+});
+app.post('/subject', (req, res) => {
+  const data = req.body;
+  const  items = new SubjectData(data.subject);
+  console.log(data);
+  subjectArray.push(items);
+  res.redirect('back')
 });
 
 app.get('/teacher', (req, res) => {
   res.json(teacherArray);
+});
+app.get('/subject', (req, res) => {
+  res.json(subjectArray);
 });
 app.get('/add', (req, res) => {
   res.json(dataArray);
