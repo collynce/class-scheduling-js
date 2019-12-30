@@ -8,7 +8,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', 'browserify'],
+    frameworks: ['jasmine'],
     // plugins:[
     //   'karma-browserify'
     // ],
@@ -27,7 +27,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      './routes/index.js': ['browserify']
+      // './routes/index.js': ['browserify']
     },
 
 

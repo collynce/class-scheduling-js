@@ -25,7 +25,6 @@ class ChangeDom {
 
             }
         }
-        // return cdata
     }
 }
 class CreateSchedule {
