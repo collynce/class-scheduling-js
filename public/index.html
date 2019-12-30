@@ -7,26 +7,96 @@
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <link href="foundation/css/foundation.css" rel="stylesheet">
     <link href="foundation/css/app.css" rel="stylesheet">
+<!--    <script src="http://localhost:5050/items" type="text/javascript"></script>-->
+
     <title>JS | Schedule</title>
 </head>
-<body>
+<body onload="initScript()">
 <div class="container">
     <div class="grid-container">
-        <div class="grid-x" id="form">
-            <form action="http://localhost:5050/add" method="POST">
-                <h3>Create Schedule</h3>
-                <input name="teacher" placeholder="Teacher's name" required type="text">
+        <div class="container_teachers">
+            <div class="grid-x">
+                <div class="cell medium-6">
+                    <div class="grid-container">
+                        <div class="card">
+                            <div class="card-divider">
+                                SUBJECTS
+                            </div>
+                            <div class="card-body">
+                                <div class="grid-x grid-padding-x grid-margin-x">
+                                    <div class="cell medium-12">
+                                        <button class="button" id="button1" onclick="add(1)">Add</button>
+                                        <div class="grid-x" id="form">
+                                            <form action="http://localhost:5050/add" method="POST">
+                                                <h3>Add Subject</h3>
+<!--                                                <input name="teacher" placeholder="Teacher's name" required type="text">-->
 
-                <input name="subject" placeholder="Subject name" required type="text">
+                                                <input name="subject" placeholder="Subject name" required type="text">
 
-                <input name="room" placeholder="Venue" required type="text">
+<!--                                                <input name="venue" placeholder="Venue" required type="text">-->
 
-                <input min="Date.now()" name="date" required type="date">
+<!--                                                <input min="Date.now()" name="date" required type="date">-->
 
-                <button class="button primary" id="button" type="submit">Submit</button>
-                <button class="button alert" id="close">Close</button>
-            </form>
+                                                <button class="button primary" id="button" type="submit">Submit</button>
+                                                <button class="button alert" id="close1">Close</button>
+                                            </form>
+                                        </div>
+                                        <table id="subjects-table">
+                                            <thead>
+                                            <tr>
+                                                <th>Subject Name</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="cell medium-6">
+                    <div class="grid-container">
+                        <div class="card">
+                            <div class="card-divider">
+                                TEACHERS
+                            </div>
+                            <div class="card-body">
+                                <div class="grid-x grid-padding-x grid-margin-x">
+                                    <div class="cell medium-12">
+                                        <button class="button" onclick="add(2)">Add</button>
+                                        <span><button class="button alert" id="close2" onclick="closeBtn(2)"
+                                                      style="display: none">Close</button></span>
+                                        <form action="http://localhost:5050/teacher" id="form2" method="post" style="display: none">
+                                            <input placeholder="Name" type="text" name="teacher" required>
+                                            <select name="select" id="select" required>
+                                                <option value="Select">Select</option>
+                                            </select>
+                                            <button class="button success" type="submit" id="submit2">Submit</button>
+                                        </form>
+                                        <table id="teachers-table">
+                                            <thead>
+                                            <tr>
+                                                <th>Subject Name</th>
+                                                <th>Teacher</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <br>
         <div class="card">
             <div class="card-divider">
                 <p>Schedule
@@ -45,7 +115,7 @@
                                 <th>Date</th>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tbody">
 
                             </tbody>
                         </table>
